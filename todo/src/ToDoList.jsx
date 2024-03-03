@@ -37,26 +37,32 @@ function ToDoList() {
     setTasks(updatedTasks);
   }
 
-
+//same as the upper one
   function moveTaskUp(index) {
+//checks if the item we are moving is on top
     if (index > 0) {
+//if the condition is true, a copy is created of the "task array"
+//we are using the [...] to do that
       const updatedTasks = [...tasks];
-      [updatedTasks[index], updatedTasks[index - 1]] = [
-        updatedTasks[index - 1],
-        updatedTasks[index],
-      ];
+//next line swaps the the task with the one above it using destructuring
+      [updatedTasks[index], updatedTasks[index - 1]] = [updatedTasks[index - 1],updatedTasks[index],];
+//this updates the setter which updates the main task array
       setTasks(updatedTasks);
     }
   }
 
 
   function moveTaskDown(index) {
+//checks if the item we are moving is last on the list
     if (index < tasks.length - 1) {
+//if the condition is true we create a copy of the task array
       const updatedTasks = [...tasks];
+//using destrcturing we swap them
       [updatedTasks[index], updatedTasks[index + 1]] = [
         updatedTasks[index + 1],
         updatedTasks[index],
       ];
+//this updates the setter which updates the main task array
       setTasks(updatedTasks);
     }
   }
